@@ -1,0 +1,13 @@
+<h1>登録ページ</h1>
+
+<%= form_with(url: login_index_path) do |form| %>
+  <div>
+    <%= form.label :email, 'メールアドレス', style: "display: block" %>
+    <%= form.text_field :email, value: params[:email] %>
+  </div>
+
+  <div>
+    <%= form.submit '登録' %>
+  </div>
+  <%= link_to 'ログインページへ', login_path%>
+<% end %>

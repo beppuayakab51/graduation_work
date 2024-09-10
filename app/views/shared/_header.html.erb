@@ -1,0 +1,29 @@
+<header>
+  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+      <ul class='navbar-nav ms-auto main-nav align-items-center'>
+
+        # 洋書アイコンとリストアイコン
+        <li class='nav-item'>
+          <%= link_to t('header.books'), books_path, class: 'btn btn-light nav-link' %>        
+        </li>
+        <li class='nav-item'>
+          <%= link_to t('header.words'), words_path, class: 'btn btn-light nav-link' %>        
+        </li>
+
+        # ログイン、ログアウトボタン
+        <li class='nav-item'>
+          <%= link_to login_index_path, class: 'btn btn-success nav-link' do %>
+            <i class="bi bi-book-fill"></i>
+          <% end %>
+        </li>
+
+        <li class='nav-item'>
+          <%= link_to t('header.login'), login_path, class: 'btn btn-light nav-link' %>        
+        </li>
+
+      </ul>
+    </div>
+
+  </nav>
+</header>
