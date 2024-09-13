@@ -1,18 +1,16 @@
-<% content_for(:title, '掲示板一覧 | RUNTEQ BOARD APP') %>
 <div class="container pt-3">
   <div class="row">
   </div>
-  <!-- 掲示板一覧 -->
+  <!-- 本一覧 -->
   <div class="row">
     <div class="col-12">
       <div class="row">
         <% if @books.present? %>
           <%= render @books %>
         <% else %>
-          <div class="mb-3">掲示板がありません</div>
+          <div class="mb-3">本がありません</div>
         <% end %>
       </div>
-      <%= paginate @books , theme: 'bootstrap-5' %>
     </div>
   </div>
 </div>

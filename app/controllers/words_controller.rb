@@ -1,3 +1,5 @@
 class WordsController < ApplicationController
-  def index; end 
+  def index
+    @words = Word.includes(:user).where(user: current_user)
+  end
 end

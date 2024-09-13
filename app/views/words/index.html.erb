@@ -1,0 +1,16 @@
+<div class="container pt-3">
+  <div class="row">
+  </div>
+  <!-- 単語一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @words.present? %>
+          <%= render @words %>
+        <% else %>
+          <div class="mb-3">単語がありません</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
