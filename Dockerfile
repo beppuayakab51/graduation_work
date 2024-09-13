@@ -13,8 +13,7 @@ RUN apt-get update -qq \
 RUN mkdir /test_rails
 WORKDIR /test_rails
 RUN gem install bundler:2.3.17
-COPY Gemfile /test_rails/Gemfile
-COPY Gemfile.lock /test_rails/Gemfile.lock
+COPY Gemfile Gemfile.lock ./
 COPY yarn.lock /test_rails/yarn.lock
 RUN bundle install
 RUN yarn install
