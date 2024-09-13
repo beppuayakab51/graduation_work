@@ -8,9 +8,8 @@
           <%= link_to t('header.books'), books_path, class: 'btn btn-light nav-link' %>        
           <%= link_to t('header.words'), words_path, class: 'btn btn-light nav-link' %>        
 
-        <!-- ログアウトボタン -->
-          <%= link_to t('header.logout'), '#', class: 'btn btn-success nav-link bi bi-book-fill' %>        
-
+        <!-- ログアウトボタン (link_toだと、ログアウト機能が動かないため、button_toで代用を行った)-->
+          <%= button_to t('header.logout'), logout_path, class: 'btn btn-success nav-link bi bi-book-fill', method: :delete, data: { turbo: false }%>
       </ul>
     </div>
   </nav>

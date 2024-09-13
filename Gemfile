@@ -5,6 +5,10 @@ ruby "3.1.4"
 
 gem 'turbo-rails'
 
+gem 'webpacker'
+
+gem 'importmap-rails', "~> 2.0"
+
 gem 'enum_help'
 
 gem 'hotwire-rails'
@@ -93,3 +97,5 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem "importmap-rails", "~> 2.0"
