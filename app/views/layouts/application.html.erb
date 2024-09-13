@@ -1,6 +1,15 @@
-</head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+    <%= stylesheet_link_tag "application" %>
+  </head>
   <body>
+  <% if logged_in? %>
     <%= render 'shared/header' %>
+  <% else %>
+    <%= render 'shared/before_login_header' %>
+  <% end %>
     <%= yield %>
   </body>
 </html>

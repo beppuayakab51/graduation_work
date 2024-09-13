@@ -10,11 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_09_105828) do
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
-    t.string "email"
+ActiveRecord::Schema[7.0].define(version: 2024_09_11_021212) do
+  create_table "books", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "original_text"
+    t.text "translated_text"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "crypted_password"
+    t.string "salt"
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
+    t.string "reset_unconfirmed_email"
+    t.string "reset_email_token"
+    t.datetime "reset_email_token_expires_at"
+    t.datetime "reset_email_email_sent_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "words", charset: "utf8mb4", force: :cascade do |t|
+    t.string "word", null: false
+    t.text "body"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_words_on_user_id"
+  end
+
+  add_foreign_key "books", "users"
+  add_foreign_key "words", "users"
 end
