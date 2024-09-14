@@ -11076,7 +11076,7 @@
   addEventListener("turbo:before-fetch-request", encodeMethodIntoRequestBody);
 
   // app/javascript/application.js
-  var bootstrap = __toESM(require_bootstrap());
+  var import_bootstrap = __toESM(require_bootstrap(), 1);
 
   // node_modules/@hotwired/stimulus/dist/stimulus.js
   var EventListener = class {
