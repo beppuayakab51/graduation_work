@@ -5,7 +5,6 @@ ruby "3.1.4"
 
 gem 'turbo-rails'
 
-gem 'webpacker'
 
 gem 'importmap-rails', "~> 2.0"
 
