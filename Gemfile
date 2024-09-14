@@ -7,7 +7,7 @@ gem 'turbo-rails'
 
 
 gem 'importmap-rails', "~> 2.0"
-
+gem 'jquery-rails'
 gem 'enum_help'
 
 gem 'hotwire-rails'
