@@ -1,18 +1,22 @@
 <%= form_with model: @book, class: "new_book row" do |f| %>
-    <div class="mb-3">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: "form-control" %>
-    </div>
-    <div class="mb-3 col-6">
-      <%= f.label :original_text %>
-      <%= f.text_area :original_text, class: "form-control", rows: "10" %>
-    </div>
-    <div class="col-6">
-      <%= f.label :translated_text %>
-      <%= f.text_area :translated_text, class: "form-control", rows: "10" %>
-    </div>
-    <%= f.submit nil, class: "btn btn-primary" %>
-  <% end %>
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="mb-3 col-6">
+    <%= f.label :original_text %>
+    <%= f.text_area :original_text, class: "form-control", rows: "10" %>
+  </div>
+  <div class="col-6">
+    <%= f.label :translated_text %>
+    <%= f.text_area :translated_text, class: "form-control", rows: "10" %>
+  </div>
+  <div class="col-6">
+  <%= f.label :state %>
+  <%= f.select :state, [[ "draft", "draft" ], [ "working", "working" ], [ "complete", "complete" ] ], { include_blank: "選択してください"} %>
+</div>
+  <%= f.submit nil, class: "btn btn-primary" %>
+<% end %>
 
 <!-- 単語登録 -->
 <%= link_to '単語登録', word_to_book_path, 

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   get 'word_to_book', to: 'words#new'
   post 'word_to_book', to: 'words#update'
+
 end

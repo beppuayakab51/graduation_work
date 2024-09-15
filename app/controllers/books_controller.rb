@@ -49,6 +49,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :original_text, :translated_text)
+    params.require(:book).permit(:title, :original_text, :translated_text,:state)
   end
 end
