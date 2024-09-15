@@ -19,8 +19,8 @@ class WordsController < ApplicationController
   def update
       @word = current_user.words.find(params[:id])
       if @word.update(word_params)
-        redirect_to request.referer, success: '単語帳を修正しました'
-      else
+        redirect_to words_path, success: '単語帳を修正しました'
+      else 
         flash.now[:danger] = '単語の更新に失敗しました'
         render :edit, status: :unprocessable_entity
       end
@@ -30,7 +30,7 @@ class WordsController < ApplicationController
     # 引数word_paramsを与えることで、bookに代入し、変数に格納
     @word = current_user.words.build(word_params)
     if @word.save
-      redirect_to words_path, success: '単語帳に新しく書き加えました'
+      redirect_to request.referer, success: '単語帳に新しく書き加えました'
     else
       flash.now[:danger] = '単語の登録に失敗しました'
       render :new, status: :unprocessable_entity
