@@ -14,6 +14,9 @@ class BooksController < ApplicationController
     
   def edit
     @book = current_user.books.find(params[:id])
+    # current_user.books.find(params[:id])と記述することで、
+    # ログインしているユーザーが投稿した掲示板一覧の中から
+    # params[:id]の値と同じIDを持ったBoardレコードのみを取得する。
   end
     
   def update
@@ -40,7 +43,7 @@ class BooksController < ApplicationController
   def destroy
     book = current_user.books.find(params[:id])
     book.destroy!
-    redirect_to book_path, success: t('defaults.flash_message.deleted', item: Board.model_name.human), status: :see_other
+    redirect_to book_path, success: t('defaults.flash_message.deleted', item: Book.model_name.human), status: :see_other
   end
 
   private
