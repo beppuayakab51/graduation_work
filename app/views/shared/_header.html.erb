@@ -9,7 +9,7 @@
           <%= link_to t('header.words'), words_path, class: 'btn btn-light nav-link' %>        
 
         <!-- ログアウトボタン (link_toだと、ログアウト機能が動かないため、button_toで代用を行った)-->
-          <%= button_to t('header.logout'), logout_path, class: 'btn btn-success nav-link bi bi-book-fill', method: :delete, data: { turbo: false }%>
+          <%= button_to t('header.logout'), logout_path, class: 'btn btn-success nav-link bi bi-book-fill', data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } %>
       </ul>
     </div>
   </nav>
