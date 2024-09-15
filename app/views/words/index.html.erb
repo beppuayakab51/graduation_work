@@ -3,14 +3,15 @@
     <%= message %>
   </div>
 <% end %>
+<div class='float-start pt-5 ms-5'>
+  <%= link_to t('header.create_word'), new_word_path, class: 'btn btn-primary btn-lg bi bi-journal-text' %>
+</div>
 <div class="container pt-3">
-  <div class="row">
-    <%= link_to t('header.create_word'), new_word_path, class: 'btn btn-light nav-link' %>
-  </div>
   <!-- 単語一覧 -->
     <% if @words.present? %>
       <%= render @words %>
     <% else %>
       <div class="mb-3">単語がありません</div>
     <% end %>
+    <%= paginate @words, theme: 'bootstrap-5' %>
 </div>

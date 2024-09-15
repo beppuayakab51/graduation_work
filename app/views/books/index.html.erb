@@ -3,14 +3,16 @@
     <%= message %>
   </div>
 <% end %>
-<div class="container pt-3">
-  <div class="row">
-  </div>
-  <%= link_to t('header.create_book'), new_book_path, class: 'btn btn-light nav-link' %>
+<div class='float-start pt-5 ms-5'>
+  <%= link_to t('header.create_book'), new_book_path, class: 'btn btn-secondary btn-lg bi bi-hand-index-thumb-fill bi bi-journal-text' %>
+</div>
+  <div class="container pt-5">
   <!-- 本一覧 -->
     <% if @books.present? %>
       <%= render @books %>
     <% else %>
       <div class="mb-3">本がありません</div>
     <% end %>
+    <%= paginate @books, theme: 'bootstrap-5' %>
 </div>
+
