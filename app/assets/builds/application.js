@@ -3957,7 +3957,7 @@
           focus: "boolean",
           keyboard: "boolean"
         };
-        class Modal extends BaseComponent {
+        class Modal2 extends BaseComponent {
           constructor(element, config2) {
             super(element, config2);
             this._dialog = SelectorEngine.findOne(SELECTOR_DIALOG, this._element);
@@ -4154,7 +4154,7 @@
           // Static
           static jQueryInterface(config2, relatedTarget) {
             return this.each(function() {
-              const data = Modal.getOrCreateInstance(this, config2);
+              const data = Modal2.getOrCreateInstance(this, config2);
               if (typeof config2 !== "string") {
                 return;
               }
@@ -4182,13 +4182,13 @@
           });
           const alreadyOpen = SelectorEngine.findOne(OPEN_SELECTOR$1);
           if (alreadyOpen) {
-            Modal.getInstance(alreadyOpen).hide();
+            Modal2.getInstance(alreadyOpen).hide();
           }
-          const data = Modal.getOrCreateInstance(target);
+          const data = Modal2.getOrCreateInstance(target);
           data.toggle(this);
         });
-        enableDismissTrigger(Modal);
-        defineJQueryPlugin(Modal);
+        enableDismissTrigger(Modal2);
+        defineJQueryPlugin(Modal2);
         const NAME$6 = "offcanvas";
         const DATA_KEY$3 = "bs.offcanvas";
         const EVENT_KEY$3 = `.${DATA_KEY$3}`;
@@ -5672,7 +5672,7 @@
           Carousel,
           Collapse,
           Dropdown,
-          Modal,
+          Modal: Modal2,
           Offcanvas,
           Popover,
           ScrollSpy,
@@ -11076,7 +11076,7 @@
   addEventListener("turbo:before-fetch-request", encodeMethodIntoRequestBody);
 
   // app/javascript/application.js
-  var import_bootstrap = __toESM(require_bootstrap(), 1);
+  var import_bootstrap2 = __toESM(require_bootstrap(), 1);
 
   // node_modules/@hotwired/stimulus/dist/stimulus.js
   var EventListener = class {
@@ -13538,8 +13538,29 @@
     }
   };
 
+  // app/javascript/controllers/remote_modal_controller.js
+  var import_bootstrap = __toESM(require_bootstrap(), 1);
+  var remote_modal_controller_default = class extends Controller {
+    connect() {
+      const currentPath = location.href;
+      const turboPath = this.element.dataset.turboPath;
+      if (turboPath.length > 0) {
+        history.pushState(null, null, turboPath);
+        this.element.addEventListener("hidden.bs.modal", function(event) {
+          history.replaceState(null, null, currentPath);
+        });
+      }
+      this.remoteModal = new import_bootstrap.Modal(this.element);
+      this.remoteModal.show();
+    }
+    disconnect() {
+      this.remoteModal.hide();
+    }
+  };
+
   // app/javascript/controllers/index.js
   application.register("hello", hello_controller_default);
+  application.register("modals", remote_modal_controller_default);
 })();
 /*! Bundled license information:
 

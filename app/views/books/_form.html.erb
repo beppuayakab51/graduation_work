@@ -14,4 +14,6 @@
     <%= f.submit nil, class: "btn btn-primary" %>
   <% end %>
 
-  <%= link_to t('header.create_word'), new_word_path, class: 'btn btn-light nav-link'%>
+<!-- 単語登録 -->
+<%= link_to '単語登録', word_to_book_path, 
+:onclick=>"window.open(this.href,'hoge', 'height=500, width=800');return false;" %>

@@ -1,17 +1,17 @@
 <div class="col-sm-12 col-lg-4 mb-3">
-    <div id="word-id-<%= word.id %>">
-          <h4 class="card-title lead">
-          <%= link_to word.word, word_path(word), class: 'link' %>
-          </h4>
-            <div class='ms-auto'>
-              <%= link_to edit_word_path(word), id: "button-edit-#{word.id}", class: 'link' do %>
-                <i class="bi bi-pencil-fill"></i>
-              <% end %>
-              <%= link_to words_path(word), id: "button-delete-#{word.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: 'link' do %>
-                <i class="bi bi-trash-fill"></i>
-              <% end %>
-            </div>
-          <ul class="list-inline">
-        </ul>
+  <div id="word-id-<%= word.id %>">
+    <h4 class="card-title lead">
+      <%= link_to word.word, word_path(word), class: 'link' %>
+    </h4>
+    <div class='ms-auto'>
+      <%= link_to edit_word_path(word), id: "button-edit-#{word.id}", class: 'link' do %>
+        <i class="bi bi-pencil-fill"></i>
+      <% end %>
+      <%= link_to word_path(word), id: "button-delete-#{word.id}", data: { turbo_method: :delete}, class: 'link' do %>
+        <i class="bi bi-trash-fill"></i>
+      <% end %>
     </div>
+    <ul class="list-inline"></ul>
+  </div>
 </div>
+
