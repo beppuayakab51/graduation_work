@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+
+  get 'word_to_book', to: 'words#new'
+  post 'word_to_book', to: 'words#update'
 end

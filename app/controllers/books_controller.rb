@@ -22,9 +22,9 @@ class BooksController < ApplicationController
   def update
     @book = current_user.books.find(params[:id])
     if @book.update(book_params)
-      redirect_to books_path(@book), success: t('defaults.flash_message.updated', item: Book.model_name.human)
+      redirect_to books_path(@book),  success: '本に書き加えました'
     else
-      flash.now[:danger] = t('defaults.flash_message.not_updated', item: book.model_name.human)
+      flash.now[:danger] = '更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
@@ -33,9 +33,9 @@ class BooksController < ApplicationController
     # 引数book_paramsを与えることで、bookに代入し、変数に格納
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to books_path, success: t('defaults.flash_message.created', item: Book.model_name.human)
+      redirect_to books_path,  success: '本を新しく入れました'
     else
-      flash.now[:danger] = t('defaults.flash_message.not_created', item: @book.model_name.human)
+      flash.now[:danger] = '本の追加に失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   def destroy
     book = current_user.books.find(params[:id])
     book.destroy!
-    redirect_to book_path, success: t('defaults.flash_message.deleted', item: Book.model_name.human), status: :see_other
+    redirect_to books_path, success: '本は無事に旅立ちました', status: :see_other
   end
 
   private

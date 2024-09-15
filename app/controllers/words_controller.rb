@@ -2,11 +2,12 @@ class WordsController < ApplicationController
   def index
     @words = Word.includes(:user).where(user: current_user)
   end
+
   def new
     # @wordは、作成画面のビュー（app/views/words/new.html.erb）に渡されます。
     @word = Word.new
   end
-    
+
   def show
     @word = Word.find(params[:id])
   end
@@ -16,22 +17,22 @@ class WordsController < ApplicationController
   end
     
   def update
-    @word = current_user.words.find(params[:id])
-    if @word.update(word_params)
-      redirect_to word_path(@book), success: t('defaults.flash_message.updated', item: Word.model_name.human)
-    else
-      flash.now[:danger] = t('defaults.flash_message.not_updated', item: word.model_name.human)
-      render :edit, status: :unprocessable_entity
-    end
+      @word = current_user.words.find(params[:id])
+      if @word.update(word_params)
+        redirect_to request.referer, success: '単語帳を修正しました'
+      else
+        flash.now[:danger] = '単語の更新に失敗しました'
+        render :edit, status: :unprocessable_entity
+      end
   end
     
   def create
     # 引数word_paramsを与えることで、bookに代入し、変数に格納
     @word = current_user.words.build(word_params)
     if @word.save
-      redirect_to words_path, success: t('defaults.flash_message.created', item: Word.model_name.human)
+      redirect_to words_path, success: '単語帳に新しく書き加えました'
     else
-      flash.now[:danger] = t('defaults.flash_message.not_created', item: @word.model_name.human)
+      flash.now[:danger] = '単語の登録に失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
@@ -39,7 +40,7 @@ class WordsController < ApplicationController
   def destroy
     word = current_user.words.find(params[:id])
     word.destroy!
-    redirect_to word_path, success: t('defaults.flash_message.deleted', item: Word.model_name.human), status: :see_other
+    redirect_to words_path, success: '単語を正しく消しました', status: :see_other
   end
 
   private
