@@ -1,6 +1,7 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.includes(:user).where(user: current_user)
+    @words = Word.includes(:user).page(params[:page])
+    @words = @words.where(user: current_user)
   end
 
   def new

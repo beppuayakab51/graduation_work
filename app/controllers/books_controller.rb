@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.includes(:user).where(user: current_user)
+    @books = Book.includes(:user).page(params[:page])
+    @books = @books.where(user: current_user)
   end
     
   def new
