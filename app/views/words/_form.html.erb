@@ -7,9 +7,5 @@
       <%= f.label :body %>
       <%= f.text_area :body, class: "form-control", rows: "10" %>
     </div>
-    <div class="mb-3 col-18">
-    <%= f.label :body %>
-    <%= f.select :name, [ [ "山田", 1 ], [ "佐々木", 2 ] ], { include_blank: "選択してください"} %>
-  </div>
     <%= f.submit nil, class: "btn btn-primary" %>
   <% end %>
