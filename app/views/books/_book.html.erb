@@ -2,6 +2,7 @@
   <h4 class="card-title lead">
     <%= link_to book.title, book_path(book), class: 'link' %>
   </h4>
+  <%= book.state %>
   <div class='ms-auto'>
     <%= link_to edit_book_path(book), id: "button-edit-#{book.id}", class: 'link' do %>
       <i class="bi bi-pencil-fill"></i>

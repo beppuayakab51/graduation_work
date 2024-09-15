@@ -28,8 +28,6 @@ end
 gem 'sorcery'
 gem 'draper', '4.0.2'
 
-#画像アップローダー
-gem 'carrierwave'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
