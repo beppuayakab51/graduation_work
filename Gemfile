@@ -79,8 +79,6 @@ group :production do
   gem "pg", "~> 1.4"
 end
 
-gem 'webpacker', github: "rails/webpacker"
-
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
