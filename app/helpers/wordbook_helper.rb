@@ -1,0 +1,2 @@
+module WordbookHelper
+end

@@ -3,9 +3,12 @@
     <%= message %>
   </div>
 <% end %>
-<div class='float-start pt-5 ms-5'>
-  <%= link_to t('header.create_word'), new_word_path, class: 'btn btn-primary btn-lg bi bi-journal-text' %>
-</div>
+    <div class="container pt-3">
+    <!-- 検索フォーム -->
+      <%= render 'search_form', q: @q, url: words_path %>
+    <!-- 単語追加 -->
+      <%= link_to t('header.create_word'), new_word_path, class: 'btn btn-primary btn-lg bi bi-journal-text' %>
+    </div>
 <div class="container pt-3">
   <!-- 単語一覧 -->
     <% if @words.present? %>
@@ -15,3 +18,4 @@
     <% end %>
     <%= paginate @words, theme: 'bootstrap-5' %>
 </div>
+

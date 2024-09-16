@@ -10,6 +10,7 @@
         <% end %>
       </div>
           <p><%= simple_format(@word.body) %></p>
+          <%= link_to '戻る', words_path, class: 'btn btn-light nav-link' %> 
       </div>
     </div>
   </div>

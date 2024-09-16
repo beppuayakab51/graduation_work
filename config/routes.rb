@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'word_to_book', to: 'words#new'
   post 'word_to_book', to: 'words#update'
 
+  get 'search_to_word', to: 'words#index'
+
 end

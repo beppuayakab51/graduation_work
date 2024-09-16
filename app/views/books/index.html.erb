@@ -7,7 +7,7 @@
   <%= link_to t('header.create_book'), new_book_path, class: 'btn btn-secondary btn-lg bi bi-hand-index-thumb-fill bi bi-journal-text' %>
 </div>
   <div class="container pt-5">
-  <!-- 本一覧 -->
+    <!-- 本一覧 -->
     <% if @books.present? %>
       <%= render @books %>
     <% else %>

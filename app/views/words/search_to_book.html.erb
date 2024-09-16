@@ -1,0 +1,20 @@
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>">
+      <%= message %>
+    </div>
+  <% end %>
+      <div class="container pt-3">
+      <!-- 検索フォーム -->
+        <%= render 'search_form', q: @q, url: words_path %>
+  <div class="container pt-3">
+    <!-- 単語一覧 -->
+      <% if @words.present? %>
+        <%= render @words %>
+      <% else %>
+        <div class="mb-3">単語がありません</div>
+      <% end %>
+      <%= paginate @words, theme: 'bootstrap-5' %>
+  </div>  
+    <!-- 単語追加 -->
+        <%= link_to t('header.create_word'), new_word_path, class: 'btn btn-primary btn-lg bi bi-journal-text' %>
+    </div>

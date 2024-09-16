@@ -13,10 +13,12 @@ gem 'enum_help'
 
 gem 'hotwire-rails'
 
+# 検索機能
 gem 'ransack'
 
 gem 'config'
 
+# ページネーション
 gem 'kaminari', '1.2.2'
 gem 'bootstrap5-kaminari-views'
 

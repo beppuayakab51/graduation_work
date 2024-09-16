@@ -1,6 +1,7 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.includes(:user).page(params[:page])
+    @q = Word.ransack(params[:q])
+    @words = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
     @words = @words.where(user: current_user)
   end
 
