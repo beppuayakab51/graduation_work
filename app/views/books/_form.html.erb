@@ -17,7 +17,19 @@
 </div>
   <%= f.submit nil, class: "btn btn-primary" %>
 <% end %>
-
+<div class="row">
+<div class="col">
 <!-- 単語登録 -->
-<%= link_to '単語登録', word_to_book_path, 
-:onclick=>"window.open(this.href,'hoge', 'height=500, width=800');return false;" %>
+<h3>
+<%= link_to '単語登録', word_to_book_path, class: "bi bi-brush-fill",
+:onclick=>"window.open(this.href,'hoge', 'height=500, width=800, left=2500');return false;" %>
+</div>
+</h3>
+<div class="col">
+<!-- 単語検索 -->
+<h3>
+<%= link_to '単語検索', search_to_word_path, 
+:onclick=>"window.open(this.href,'hoge', 'height=500, width=800, left=2500');return false;" %>
+</div>
+</h3>
+</div>
